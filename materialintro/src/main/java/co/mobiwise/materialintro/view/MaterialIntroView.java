@@ -11,6 +11,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.os.Build;
 import android.os.Handler;
+import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -137,6 +138,16 @@ public class MaterialIntroView extends RelativeLayout {
     private View infoView;
 
     /**
+     * CardView dialog
+     */
+    private CardView cardViewDialog;
+
+    /**
+     * CardView dialog card background color
+     */
+    private int colorCardViewDialog;
+
+    /**
      * Info Dialog Text
      */
     private TextView textViewInfo;
@@ -252,6 +263,7 @@ public class MaterialIntroView extends RelativeLayout {
         delayMillis = Constants.DEFAULT_DELAY_MILLIS;
         fadeAnimationDuration = Constants.DEFAULT_FADE_DURATION;
         padding = Constants.DEFAULT_TARGET_PADDING;
+        colorCardViewDialog = Constants.DEFAULT_COLOR_CARDVIEW;
         colorTextViewInfo = Constants.DEFAULT_COLOR_TEXTVIEW_INFO;
         focusType = Focus.ALL;
         focusGravity = FocusGravity.CENTER;
@@ -281,6 +293,8 @@ public class MaterialIntroView extends RelativeLayout {
         View layoutInfo = LayoutInflater.from(getContext()).inflate(R.layout.material_intro_card, null);
 
         infoView = layoutInfo.findViewById(R.id.info_layout);
+        cardViewDialog = (CardView) layoutInfo.findViewById(R.id.card_view);
+        cardViewDialog.setCardBackgroundColor(colorCardViewDialog);
         textViewInfo = (TextView) layoutInfo.findViewById(R.id.textview_info);
         textViewInfo.setTextColor(colorTextViewInfo);
         imageViewIcon = (ImageView) layoutInfo.findViewById(R.id.imageview_icon);
@@ -577,6 +591,11 @@ public class MaterialIntroView extends RelativeLayout {
         this.focusGravity = focusGravity;
     }
 
+    private void setColorCardViewDialog(int colorCardViewDialog) {
+        this.colorCardViewDialog = colorCardViewDialog;
+        cardViewDialog.setCardBackgroundColor(this.colorCardViewDialog);
+    }
+
     private void setColorTextViewInfo(int colorTextViewInfo) {
         this.colorTextViewInfo = colorTextViewInfo;
         textViewInfo.setTextColor(this.colorTextViewInfo);
@@ -686,6 +705,11 @@ public class MaterialIntroView extends RelativeLayout {
 
         public Builder setTargetPadding(int padding) {
             materialIntroView.setPadding(padding);
+            return this;
+        }
+
+        public Builder setDialogBackgroundColor(int color) {
+            materialIntroView.setColorCardViewDialog(color);
             return this;
         }
 
