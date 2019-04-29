@@ -631,6 +631,7 @@ public class MaterialIntroView extends RelativeLayout {
             this.maskColor = configuration.getMaskColor();
             this.delayMillis = configuration.getDelayMillis();
             this.isFadeAnimationEnabled = configuration.isFadeAnimationEnabled();
+            this.colorCardViewDialog = configuration.getColorCardViewDialog();
             this.colorTextViewInfo = configuration.getColorTextViewInfo();
             this.isDotViewEnabled = configuration.isDotViewEnabled();
             this.dismissOnTouch = configuration.isDismissOnTouch();

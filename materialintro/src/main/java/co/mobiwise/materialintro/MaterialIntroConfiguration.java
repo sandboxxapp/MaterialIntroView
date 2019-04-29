@@ -21,6 +21,8 @@ public class MaterialIntroConfiguration {
 
     private boolean dismissOnTouch;
 
+    private int colorCardViewDialog;
+
     private int colorTextViewInfo;
 
     private boolean isDotViewEnabled;
@@ -31,6 +33,7 @@ public class MaterialIntroConfiguration {
         maskColor = Constants.DEFAULT_MASK_COLOR;
         delayMillis = Constants.DEFAULT_DELAY_MILLIS;
         padding = Constants.DEFAULT_TARGET_PADDING;
+        colorCardViewDialog = Constants.DEFAULT_COLOR_CARDVIEW;
         colorTextViewInfo = Constants.DEFAULT_COLOR_TEXTVIEW_INFO;
         focusType = Focus.ALL;
         focusGravity = FocusGravity.CENTER;
@@ -94,6 +97,14 @@ public class MaterialIntroConfiguration {
 
     public void setDismissOnTouch(boolean dismissOnTouch) {
         this.dismissOnTouch = dismissOnTouch;
+    }
+
+    public int getColorCardViewDialog() {
+        return colorCardViewDialog;
+    }
+
+    public void setColorCardViewDialog(int colorCardViewDialog) {
+        this.colorCardViewDialog = colorCardViewDialog;
     }
 
     public int getColorTextViewInfo() {
